@@ -21,18 +21,26 @@ io.on('connection',(socket)=>{
     createdAt:'23'
   });
 
-  socket.emit('newMsg',{
-    from:'Haha',
-    text:'Mine',
-    createat:'123'
-  });
+  // socket.emit('newMsg',{
+  //   from:'Haha',
+  //   text:'Mine',
+  //   createat:'123'
+  // });
+
+
 
   socket.on('createEmail',(newEmail)=>{
     console.log('New mail',newEmail);
+
   });
 
   socket.on('createMsg',(msg)=>{
     console.log('Msg',msg);
+    io.emit('newMsg',{
+      from:msg.from,
+      text:msg.text,
+      time:new Date().getTime()
+    });
   });
 
   socket.on('disconnect',()=>{

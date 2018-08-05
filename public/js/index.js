@@ -5,10 +5,10 @@ socket.emit('createEmail',{
   to:'1@g.com',
   text:'This s send'
 });
-socket.emit('createMsg',{
-  to:'1@g.commsg',
-  text:'This s send msg'
-});
+// socket.emit('createMsg',{
+//   to:'1@g.commsg',
+//   text:'This s send msg'
+// });
 });
 socket.on('disconnect',function (){console.log('disconnected from server');});
 socket.on('newEmail',function(email){
